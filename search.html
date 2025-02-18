@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veteran Beatx</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body> 
+        <div class="sidebar">
+            <i>
+                <img src="/images/logo.png" class="vet-logo">
+            </i>
+
+            <a href="#close" class="close-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+                <a href="./Index.html">
+                    <i class="fa fa-home">
+                    </i>
+                    <span>Home</span>
+                </a>
+                <a href="./Music.html">
+                    <i class="fa fa-fire"></i>
+                    <span>Music</span>
+                </a>
+                <a href="./About.html">
+                    <i class="fa fa-play-circle"></i>
+                    <span>Veteran Beatx</span>
+                </a>
+                <a href="./contact.html">
+                    <i class="fa fa-book"></i>
+                    <span>Contact</span>
+                </a>
+                <div class="line"></div>
+                <a href="https://youtube.com/@veteranbeatx?si=sbwoqsfulVnm0vFT" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube Channel</span>
+                </a>
+                <a href="https://www.facebook.com/maphutha.agree" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/veteran_aggrey/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://wa.link/dbr7pm" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </a>
+        </div>
+
+        <main id="song-wrap">
+                <div class="navbar">
+                    <a href="#close" class="back" id="back-button"><i class="fa-solid fa-arrow-left"></i></a>
+                    <i><a href="./Index.html"><img src="/images/logo.png" class="search-icon"></a></i>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" autofocus style="width: 87.4%;" placeholder="Search for albums, singles, beats, or mixtapes...">
+                    <div id="single-image-container"></div>
+                </div>
+            </main>
+        <script src="index.js"></script>
+        <script src="music.js"></script>
+
+        <script>
+
+            const searchInput = document.getElementById('searchInput');
+            const resultsContainer = document.getElementById('single-image-container');
+            
+            searchInput.addEventListener('input', () => {
+              const query = searchInput.value.toLowerCase();
+              const filteredResults = [];
+            
+              // Search through albums
+              albums.forEach(album => {
+                if (album.name.toLowerCase().includes(query) || album.album.toLowerCase().includes(query)) {
+                  filteredResults.push({ type: 'Album', ...album });
+                }
+              });
+            
+              // Search through singles
+              singles.forEach(song => {
+                if (song.name.toLowerCase().includes(query) || song.single.toLowerCase().includes(query)) {
+                  filteredResults.push({ type: 'Song', ...song });
+                }
+              });
+            
+              // Search through beats
+              beats.forEach(beat => {
+                if (beat.name.toLowerCase().includes(query) || beat.beat.toLowerCase().includes(query)) {
+                  filteredResults.push({ type: 'Beat', ...beat });
+                }
+              });
+            
+              // Search through mixtapes
+              mixtapes.forEach(mixtape => {
+                if (mixtape.name.toLowerCase().includes(query) || mixtape.mixtape.toLowerCase().includes(query)) {
+                  filteredResults.push({ type: 'Mixtape', ...mixtape });
+                }
+              });
+            
+              // Categorize results
+              const categorizedResults = {};
+              filteredResults.forEach(result => {
+                if (!categorizedResults[result.type]) {
+                  categorizedResults[result.type] = [];
+                }
+                categorizedResults[result.type].push(result);
+              });
+            
+              // Display results
+              displayResults(categorizedResults);
+            });
+            
+            function displayResults(results) {
+              resultsContainer.innerHTML = '';
+
+            
+              Object.keys(results).forEach(category => {
+                const categoryElement = document.createElement('div');
+                const catHead = document.createElement('div');
+                categoryElement.classList.add('category');
+                const categoryTitle = document.createElement('h1');
+                categoryTitle.innerText = category;
+                categoryElement.appendChild(catHead);
+                catHead.appendChild(categoryTitle);
+            
+                results[category].forEach(result => {
+                  const resultItem = document.createElement('div');
+                  resultItem.classList.add('result-item');
+                  const anchor = document.createElement('a');
+                  anchor.href = `${result.type}.html?${result.type.toLowerCase()}=${result.id}`;
+                  const img = document.createElement('img');
+                  img.src = result.image;
+                  img.alt = `${result.type} ${result.id}`;
+                  const coverElement = document.createElement('p');
+                  coverElement.id = 'cover-name';
+                  coverElement.innerText = result.name;
+                  const titleElement = document.createElement('p');
+                  titleElement.id = 'album-name';
+                  titleElement.innerText = result.album || result.single || result.beat || result.mixtape;
+                  anchor.appendChild(img);
+                  anchor.appendChild(coverElement);
+                  anchor.appendChild(titleElement);
+                  resultItem.appendChild(anchor);
+                  categoryElement.appendChild(resultItem);
+                });
+            
+                resultsContainer.appendChild(categoryElement);
+              });
+            
+              if (Object.keys(results).length === 0) {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+              }
+            }
+            
+            document.getElementById('back-button').addEventListener('click', function () {
+              history.back();
+            });
+            
+            
+          </script>
+    </body>
+    </html>
+    

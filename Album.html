@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veteran Beatx</title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body> 
+        <div class="sidebar">
+            <i>
+                <img src="/images/logo.png" class="vet-logo">
+            </i>
+
+            <a href="#close" class="close-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+                <a href="./Index.html">
+                    <i class="fa fa-home">
+                    </i>
+                    <span>Home</span>
+                </a>
+                <a href="./Music.html">
+                    <i class="fa fa-fire"></i>
+                    <span>Music</span>
+                </a>
+                <a href="./About.html">
+                    <i class="fa fa-play-circle"></i>
+                    <span>Veteran Beatx</span>
+                </a>
+                <a href="./contact.html">
+                    <i class="fa fa-book"></i>
+                    <span>Contact</span>
+                </a>
+                <div class="line"></div>
+                <a href="https://youtube.com/@veteranbeatx?si=sbwoqsfulVnm0vFT" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube Channel</span>
+                </a>
+                <a href="https://www.facebook.com/maphutha.agree" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/veteran_aggrey/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://wa.link/dbr7pm" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Whatsapp</span>
+                </a>
+        </div>
+
+        <main id="song-wrap">
+            <div class="navbar">
+                <a href="#close" class="back" id="back-button"><i class="fa-solid fa-arrow-left"></i></a>
+                <i><a href="./Index.html"><img src="/images/logo.png" class="search-icon"></a></i>
+            </div>
+        <div id="song-container">
+            <div id="song-details">
+                <div>
+                    <img id="album-image" src="" alt="Song image">
+
+                </div>
+                <div class="right alb-right">
+                    <h1 id="album-name"></h1>
+                    <h1 id="album-album"></h1>
+                    <h1 id="album-composer"></h1>
+                    <p id="album-date"></p>
+                    <p id="album-description"></p>
+                    <div id="tracklist" class="track-listing"></div>
+                    <h1 class="play-on">Play On</h1>
+                    <div class="btns">
+                       <button id="youtube-url" class="youtube">YouTube</button>
+                       <button id="geniux-url" class="geniux">Geniux Music</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="blog">
+                <div class="sub-heading">
+                    <div>
+                            <div class="sub">
+                                <h3>All Albums</h3>
+                            </div>
+
+                    </div>
+                </div>
+                    <div class="album-box space">
+                        <div id="singles">
+                            <div id="single-image-container"></div>
+                        </div>
+                    </div>
+                
+            </div>
+
+            <canvas id="canvas" style="display: none;"></canvas> 
+
+        </main>
+
+        <div class="no-link"></div>
+
+        <script src="music.js"></script>
+        <script src="allmusic.js"></script>
+        <script src="index.js"></script>
+        <script src="album.js"></script>
+        <script src="bgColor.js"></script>
+        <script>
+            
+            document.getElementById('back-button').addEventListener('click', function () {
+                history.back();
+            });
+
+        </script>
+
+    </body>
+</html>
