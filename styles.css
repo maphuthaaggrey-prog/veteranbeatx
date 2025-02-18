@@ -220,7 +220,12 @@ section h1 {
     padding-left: 10px;
     font-weight: 500;
 }
-.sub-heading div h5 {
+.sub-heading div a {
+    text-decoration: none;
+     color: #464646;
+}
+
+.sub-heading div a h5 {
     font-size: 14px;
     font-weight: 500;
     color: #464646;
