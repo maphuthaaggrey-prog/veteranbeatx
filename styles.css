@@ -241,7 +241,7 @@ section h1 {
 
 }
 
-#cover-name, #albums #album-name,  .result-item #album-name  {
+#cover-name, #albums #album-name,  .result-item #album-name, #beats-image #album-name   {
     padding-left: 3px;
 }
 #albums #album-name, .result-item #album-name {
@@ -436,7 +436,7 @@ section h1 {
     font-weight: 500;
     color: #949494;
 }
-#song-details #beat-beat,#song-details #beat-date ,#song-details #beat-composer,#song-details #album-composer {
+#song-details #beat-beat,#song-details #beat-date ,#song-details #beat-composer,#song-details #album-composer, #beats-image #album-name  {
     font-size: 14px;
     font-weight: 500;
     color: #949494;
